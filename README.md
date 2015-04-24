@@ -8,6 +8,7 @@ Presentation at Bandung Azure Global Bootcamp, April 25th 2015
 * Presentation in pdf
 * [Postman](https://www.getpostman.com/) collection
 * Demo website
+* Sample dataset
 
 # Azure Search features
 
