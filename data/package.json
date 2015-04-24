@@ -1,0 +1,22 @@
+{
+  "name": "search-demo-data",
+  "version": "0.1.0",
+  "description": "Azure search demo data",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arifsetiawan/azuresearch.git"
+  },
+  "author": {
+    "name": "Nurul Arif Setiawan",
+    "email": "arif@dycode.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arifsetiawan/azuresearch/issues"
+  },
+  "dependencies": {
+    "async": "~0.9.0",
+    "lodash": "~3.7.0",
+    "superagent": "~1.2.0",
+  }
+}
