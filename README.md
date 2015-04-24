@@ -6,16 +6,14 @@ Presentation at Bandung Azure Global Bootcamp, April 25th 2015
 # Content
 
 * Presentation in pdf
-* Postman collection
+* [Postman](https://www.getpostman.com/) collection
 * Demo website
 
 ## Postman collection
 
-You need to install Postman (only for Chrome browser)
-
 # Azure Search features
 
-The presentation covers following
+The presentation covers following features from Azure Search
 
 * Create index
 * Upload document
