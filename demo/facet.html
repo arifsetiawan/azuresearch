@@ -81,7 +81,33 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
 
+    $(function(){
+
       var setElement = function(data) {
+
+        var facets = data['@search.facets'];
+        var facetKeys = Object.keys(facets);
+        facetKeys.forEach(function setupFacet(key, index, array) {
+          if (key.indexOf('@odata.type') === -1) {
+            var aFacet =   
+              '<div class="facet-group">' +      
+              '<hr>' +   
+              '<p>' + key + '</p>' + 
+              '<ul>';
+
+            facets[key].forEach(function setFacet(item, index, array) {
+              var value = item.value;
+              if (typeof value === 'string') {
+                value = '\'' + value + '\''
+              }
+              aFacet += '<li><a class="facet-item" data-filter="'+ key + ' eq '+value+'">' + item.value + '  (' + item.count + ')<a></li>'
+            })
+
+            aFacet += '</ul></div>';
+            $('#hotels-facet').append(aFacet);
+          }
+        })
+
         data.value.forEach(function setupData(hotel, index, array) {
           var aHotel =           
             '<div class="col-md-8 list-group-item">' + 
@@ -94,9 +120,11 @@
         })    
       }
 
-      var search = function(query) {
+      var search = function(query,filter) {
+        var url = 'https://SEARCHSERVICE.search.windows.net/indexes/hotels/docs?'+query+'&facet=starRating&facet=freeWifi&facet=areaName&'+filter+'&api-version=2015-02-28&$top=10';
+
         $.ajax({
-          url: 'https://SEARCHSERVICE.search.windows.net/indexes/hotels/docs?'+query+'&searchMode=all&api-version=2015-02-28&$top=10',
+          url: url,
           headers: {
             'api-key': 'CLIENTKEY'
           },
@@ -107,7 +135,8 @@
             console.error(textStatus);
           },
           beforeSend: function () {
-            $(".list-group-item").remove()
+            $(".list-group-item").remove();
+            $(".facet-group").remove()
           },
           complete: function () {
             
@@ -115,6 +144,7 @@
         });
       }
 
+      var lastFilter = '';
       $('#search-go').on('click', function(e) {
         e.preventDefault();
         if ($('#search-query').val().length === 0) {
@@ -123,8 +153,24 @@
         else {
           query = 'search='+$('#search-query').val();
         }
-        search(query);
+        search(query,lastFilter);
       });
+    
+      $(document).on('click', '.facet-item', function(e) { 
+        e.preventDefault();
+        var filter = $(this).attr('data-filter');
+        if (lastFilter.length > 0) {
+          lastFilter += ' and ' + filter;
+        }
+        else {
+          lastFilter = '$filter=' + filter;
+        }
+        console.log(lastFilter);
+        search(query,lastFilter);
+      });
+
+    });
+
     </script>
   </body>
 </html>
