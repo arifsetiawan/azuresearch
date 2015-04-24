@@ -1,0 +1,25 @@
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+}
+
+.h4, .h5, .h6, h4, h5, h6 {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+p {
+  margin-bottom: 5px !important;
+}
+
+.list-group-item {
+  padding: 5px 5px !important;
+}
+
+.img-thumb {
+  float: left; 
+  padding-right: 10px;
+}
