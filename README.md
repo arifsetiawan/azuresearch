@@ -9,8 +9,6 @@ Presentation at Bandung Azure Global Bootcamp, April 25th 2015
 * [Postman](https://www.getpostman.com/) collection
 * Demo website
 
-## Postman collection
-
 # Azure Search features
 
 The presentation covers following features from Azure Search
