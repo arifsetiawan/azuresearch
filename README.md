@@ -43,4 +43,4 @@ There are two apps for demo:
 
 # Contact
 
-Send me email to arif@dycode.com or n.arif.setiawan@gmail.com if you have any question of would like to use some of materials here.
+Send me email to arif@dycode.com or n.arif.setiawan@gmail.com if you have any question or would like to use some of materials here.
